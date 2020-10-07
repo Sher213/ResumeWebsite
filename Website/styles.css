@@ -1,0 +1,310 @@
+:root {
+    --primarybg:#101010;
+    --secondarybg:#3a3b3b;
+    --tertiarybg:#191b1b;
+    --primarytxt:#1fc9ce;
+    --pagebreakclr: #1f4d68;
+}
+
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+body {
+    background-color:var(--primarybg);
+    display: grid;
+    column-gap: 5px;
+    row-gap: 0;
+    grid-template-columns: 4.5% auto ;
+    grid-template-areas: 
+        'nav greeting'
+        'nav about'
+        'nav projects'
+        'nav contact';
+}
+
+/* Text and Misc. Styles */
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--primarytxt);
+    font-size: 400%;
+    font-weight: 900;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightgray;
+    font-size: 200%;
+    font-weight: 900;
+}
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color:  #8dcbcc;
+  font-size: 140%;
+  font-weight: 800;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: lightgray;
+  line-height: 1.75;
+  font-weight: 500;
+  font-size: 100%;
+}
+
+.page-break {
+  width: 50%;
+  border-color: var(--pagebreakclr);
+}
+
+.block-link {
+  text-decoration: none;
+}
+
+/* Main Containers Style */
+
+#greeting-loc-container {
+    grid-area: greeting;
+    height: 100vh;
+    z-index: -5;
+}
+
+#greeting-cont-container {
+    width: 95%;
+    height: 100vh;
+    position: fixed;
+}
+
+#about-me-container {
+    border-top: 5px solid var(--pagebreakclr);
+    height: 100vh;
+    background-color: var(--tertiarybg);
+    grid-area: about;
+    position: relative;
+    display: grid;
+    grid-template-rows: 15% auto;
+    column-gap: 5%;
+    grid-template-areas: 
+        'title title'
+        'professional personal';
+}
+
+#projects-container {
+  height: 100vh;
+  background-color: var(--tertiarybg);
+  grid-area: projects;
+}
+
+#contact-container {
+  grid-area: contact;
+  height: 100vh;
+  background-color: var(--tertiarybg);
+}
+
+#nav-bar-container {
+    border-right: 5px solid var(--primarytxt);
+    background-color:var(--secondarybg);
+    position: fixed;
+    grid-area: nav;
+    width: 4%;
+    height: 100vh;
+    padding-left: 0.5%;
+}
+
+#homeBtn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#internal-links {
+    text-decoration: none;
+    position: absolute;
+    left: 10px;
+    font-size: large;
+    font-weight: 600;
+}
+
+/* Greet Styles */
+#g1 {
+    position: absolute;
+    width: 33%;
+    height: 60%;
+    top: 30%;
+    left: 5%;
+    text-align: center;
+}
+
+/* About Me Styles */
+
+#am1 {
+  grid-area: title;
+  text-align: center;
+}
+
+#about-professional {
+    grid-area: professional;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+
+#about-personal {
+    grid-area: personal;
+    padding-right: 10%;
+    padding-top: 10%;
+}
+
+/*Projects Styles*/
+#p1 {
+  text-align: center;
+}
+
+#p2 {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  row-gap: 7.5%;
+  column-gap: 2.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-areas:
+        'project project project'
+        'project project project';
+}
+
+.single-project {
+  grid-area: project;
+  padding-top: 1.5%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 1.5%;
+  background-color: var(--secondarybg);
+  text-align:center;
+  transition: transform .2s;
+}
+
+.single-project:hover {
+  transform: scale(1.1);
+  background-color: #969595;
+}
+
+/*Contact Styles*/
+#c1 {
+  padding-left: 10%;
+}
+
+
+/* Images Styles*/
+
+#circuit-image{
+    width: 65%;
+    height: auto;
+    position: absolute;
+    right: -30px;
+    top: -10%;
+}
+
+#logo-img{
+    width: 80%;
+    height: auto;
+    padding-top: 10px;
+}
+
+#linkedin-img, #github-img {
+    width: 40%;
+    height: auto;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+#selfie-img {
+    width: 35%;
+    height: auto;
+    border-radius: 25%;
+}
+
+#artworkex {
+  width: 35%;
+  height: auto;
+  border-radius: 35%;
+}
+
+.project-image {
+  width: auto;
+  height: 100px;
+}
+
+/* Chevron Scroll Animation from https://codemyui.com/dripping-down-arrow/ */
+.scroll-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+}
+
+.chevron {
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: var(--secondarybg);
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(60px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(150px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
